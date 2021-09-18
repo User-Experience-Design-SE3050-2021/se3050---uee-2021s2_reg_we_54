@@ -8,6 +8,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./Screens/Home";
 import QuizList from "./Screens/QuizList";
 import StoryList from "./Screens/StoryList";
+import Activity from "./Screens/Activity/Activity";
+import Origami from "./Screens/Activity/Origami";
+import CollageArt from "./Screens/Activity/CollageArt";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -22,6 +25,9 @@ export default function App() {
           />
           <Stack.Screen name="QuizList" component={QuizList} />
           <Stack.Screen name="StoryList" component={StoryList} />
+          <Stack.Screen name="Activity" component={Activity} />
+          <Stack.Screen name="Origami" component={Origami} />
+          <Stack.Screen name="CollageArt" component={CollageArt} />
         </Stack.Navigator>
       </SafeAreaProvider>
     </NavigationContainer>
