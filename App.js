@@ -7,6 +7,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./Screens/Home";
 import QuizList from "./Screens/QuizList";
+import StoryList from "./Screens/StoryList";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
             options={{ headerShown: false }}
           />
           <Stack.Screen name="QuizList" component={QuizList} />
+          <Stack.Screen name="StoryList" component={StoryList} />
         </Stack.Navigator>
       </SafeAreaProvider>
     </NavigationContainer>
