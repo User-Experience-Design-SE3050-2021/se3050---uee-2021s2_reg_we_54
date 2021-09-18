@@ -7,6 +7,10 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./Screens/Home";
 import QuizList from "./Screens/QuizList";
+import Language from "./Screens/Language"
+import EnglishLanguage from "./Screens/EnglishLanguage";
+import SinhalaLanguage from "./Screens/SinhalaLanguage";
+import TamilLanguage from "./Screens/TamilLanguage";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -20,6 +24,10 @@ export default function App() {
             options={{ headerShown: false }}
           />
           <Stack.Screen name="QuizList" component={QuizList} />
+          <Stack.Screen name="Language" component={Language} />
+          <Stack.Screen name="EnglishLanguage" component={EnglishLanguage} />
+          <Stack.Screen name="SinhalaLanguage" component={SinhalaLanguage} />
+          <Stack.Screen name="TamilLanguage" component={TamilLanguage} />
         </Stack.Navigator>
       </SafeAreaProvider>
     </NavigationContainer>
