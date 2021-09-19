@@ -25,9 +25,9 @@ export default function App() {
           />
           <Stack.Screen name="QuizList" component={QuizList} />
           <Stack.Screen name="Language" component={Language} />
-          <Stack.Screen name="EnglishLanguage" component={EnglishLanguage} />
-          <Stack.Screen name="SinhalaLanguage" component={SinhalaLanguage} />
-          <Stack.Screen name="TamilLanguage" component={TamilLanguage} />
+          <Stack.Screen name="English Learning" component={EnglishLanguage} />
+          <Stack.Screen name="Sinhala Learning" component={SinhalaLanguage} />
+          <Stack.Screen name="Tamil Learning" component={TamilLanguage} />
         </Stack.Navigator>
       </SafeAreaProvider>
     </NavigationContainer>
