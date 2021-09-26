@@ -7,6 +7,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./Screens/Home";
 import QuizList from "./Screens/QuizList";
+import Quiz from "./Screens/Quiz";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -19,7 +20,16 @@ export default function App() {
             component={Home}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name="QuizList" component={QuizList} />
+          <Stack.Screen
+            name="Quiz"
+            component={Quiz}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="QuizList"
+            component={QuizList}
+            // options={{ headerShown: false }}
+          />
         </Stack.Navigator>
       </SafeAreaProvider>
     </NavigationContainer>
