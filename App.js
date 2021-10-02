@@ -11,6 +11,8 @@ import StoryList from "./Screens/StoryList";
 import Activity from "./Screens/Activity/Activity";
 import Origami from "./Screens/Activity/Origami";
 import CollageArt from "./Screens/Activity/CollageArt";
+import ShowOrigami from "./Screens/Activity/ShowOrigami";
+import ShowCollage from "./Screens/Activity/ShowCollage";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -28,6 +30,8 @@ export default function App() {
           <Stack.Screen name="Activity" component={Activity} />
           <Stack.Screen name="Origami" component={Origami} />
           <Stack.Screen name="CollageArt" component={CollageArt} />
+          <Stack.Screen name="ShowOrigami" component={ShowOrigami} />
+          <Stack.Screen name="ShowCollage" component={ShowCollage} />
         </Stack.Navigator>
       </SafeAreaProvider>
     </NavigationContainer>

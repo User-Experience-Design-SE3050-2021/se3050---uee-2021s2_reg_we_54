@@ -1,16 +1,19 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from 'react-native'
-import { Card, ListItem, Button } from 'react-native-elements'
+import { StyleSheet, View, ScrollView, Text, Image, ImageBackground } from 'react-native'
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Card, Button } from 'react-native-elements';
 import { useNavigation } from "@react-navigation/core";
 
 const Activity = () => {
     const navigation = useNavigation();
     return (
+        <SafeAreaView>
+        <ScrollView>
         <View style={styles.MainContainer}>
             <Text style={styles.heading}>Activity For Kids</Text>
             <View style={{ margin: 'auto' }}>
                 <Card containerStyle={styles.Origami}>
-                    <Text style={{ fontSizet: 60 }}><b>Origami</b></Text>
+                    <Text style={{ fontSize: 20,fontWeight:"bold" }}>Origami</Text>
                     <View style={{ flexDirection: "row" }}>
                         <View style={{ flex: 1 }}>
                             <Image
@@ -27,7 +30,7 @@ const Activity = () => {
                         </View>
                     </View>
                     <Button
-                        buttonStyle={{ borderRadius: 5, backgroundColor: '#EC9ADA', width: 120, maxHeight: 60, marginLeft: 190 }}
+                        buttonStyle={{ borderRadius: 5, backgroundColor: '#EC9ADA', width: 120, maxHeight: 60, marginLeft: 'auto' }}
                         title='VIEW'
                         onPress={() => navigation.navigate("Origami")}
                     />
@@ -36,7 +39,7 @@ const Activity = () => {
 
             <View style={{ margin: 'auto' }}>
                 <Card containerStyle={styles.CollageArt}>
-                    <Text><b>Collage Art</b></Text>
+                    <Text style={{ fontSize: 20,fontWeight:"bold" }}>Collage Art</Text>
                     <View style={{ flexDirection: "row" }}>
                         <View style={{ flex: 1 }}>
                             <Image
@@ -53,13 +56,15 @@ const Activity = () => {
                         </View>
                     </View>
                     <Button
-                        buttonStyle={{ borderRadius: 5, backgroundColor: '#EFF264', width: 120, maxHeight: 60, marginLeft: 190 }}
+                        buttonStyle={{ borderRadius: 5, backgroundColor: '#EFF264', width: 120, maxHeight: 60, marginLeft: 'auto' }}
                         title='VIEW'
                         onPress={() => navigation.navigate("CollageArt")}
                     />
                 </Card>
             </View>
         </View>
+        </ScrollView>
+        </SafeAreaView>
     );
 };
 
