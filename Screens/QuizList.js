@@ -25,25 +25,30 @@ const QuizList = () => {
     return DB.collection("quizes").onSnapshot((snapshot) => {
       const postData = [];
       snapshot.forEach((doc) => postData.push({ ...doc.data(), id: doc.id }));
-      console.log(postData);
       setTimeout(() => {
         setQuizList(postData);
-      }, 1000);
+      }, 100);
     });
   }, []);
 
-  console.log(quizList.length);
-
   const renderItem = (item, index) => (
-    <Item title={item.quizTitle} index={index} data={item.quizData} />
+    <Item
+      title={item.quizTitle}
+      index={index}
+      data={item.quizData}
+      isAttempted={item.isAttempted}
+      marks={item.marks}
+      quizId={item.id}
+    />
   );
 
-  const Item = ({ title, index, data }) => (
+  const Item = ({ title, index, data, isAttempted, marks, quizId }) => (
     <TouchableOpacity
-      style={styles.item}
+      style={isAttempted ? styles.item : styles.itemAttempted}
       onPress={() =>
         navigation.navigate("Quiz", {
           quizData: data,
+          quizId,
         })
       }
     >
@@ -69,15 +74,30 @@ const QuizList = () => {
         {title}
       </Text>
 
-      <MaterialCommunityIcons
-        style={{
-          color: "white",
-          fontSize: 30,
-          width: "10%",
-          textAlign: "right",
-        }}
-        name="chevron-right"
-      />
+      {isAttempted ? (
+        <View>
+          <Text
+            style={{
+              color: "white",
+              fontSize: 25,
+              // width: "10%",
+              // textAlign: "right",
+            }}
+          >
+            {marks + "/" + data.length}
+          </Text>
+        </View>
+      ) : (
+        <MaterialCommunityIcons
+          style={{
+            color: "white",
+            fontSize: 30,
+            width: "10%",
+            textAlign: "right",
+          }}
+          name="chevron-right"
+        />
+      )}
     </TouchableOpacity>
   );
 
@@ -89,7 +109,8 @@ const QuizList = () => {
         </View>
       ) : (
         <FlatList
-          data={QuizListData.data}
+          // data={QuizListData.data}
+          data={quizList}
           renderItem={({ item, index }) => renderItem(item, index)}
           keyExtractor={(item, index) => index.toString()}
         />
@@ -116,5 +137,17 @@ const styles = StyleSheet.create({
   loadingContainer: {
     justifyContent: "center",
     height: "100%",
+  },
+  itemAttempted: {
+    backgroundColor: "#551A8B",
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    borderRadius: 10,
+    width: "93%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "baseline",
   },
 });

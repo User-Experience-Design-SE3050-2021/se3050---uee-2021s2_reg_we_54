@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,11 +11,15 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS, SIZES } from "../assets/Constants/theme";
 import data from "../QuizData";
-import { useRoute } from "@react-navigation/core";
+import { useRoute, useNavigation } from "@react-navigation/core";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import DB from "../Config";
+import LottieView from "lottie-react-native";
 
 const Quiz = () => {
   const route = useRoute();
+  const navigation = useNavigation();
+
   const allQuestions = route.params.quizData;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentOptionSelected, setCurrentOptionSelected] = useState(null);
@@ -233,6 +237,13 @@ const Quiz = () => {
     );
   };
 
+  const exitButtonHandler = async () => {
+    const quizRef = DB.collection("quizes").doc(route.params.quizId);
+
+    await quizRef.update({ isAttempted: true, marks: score });
+    navigation.navigate("QuizList");
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
@@ -279,6 +290,16 @@ const Quiz = () => {
                 alignItems: "center",
               }}
             >
+              <LottieView
+                style={{
+                  width: 400,
+                  height: 400,
+                  backgroundColor: "#0000",
+                }}
+                source={require("../assets/happyAnimation.json")}
+                loop={true}
+                speed={1}
+              />
               <Text style={{ fontSize: 30, fontWeight: "bold" }}>
                 {score > allQuestions.length / 2 ? "Congratulations!" : "Oops!"}
               </Text>
@@ -311,26 +332,60 @@ const Quiz = () => {
                   / {allQuestions.length}
                 </Text>
               </View>
-              {/* Retry Quiz button */}
-              <TouchableOpacity
-                onPress={restartQuiz}
+
+              <View
                 style={{
-                  backgroundColor: COLORS.accent,
-                  padding: 20,
-                  width: "100%",
-                  borderRadius: 20,
+                  display: "flex",
+                  flexDirection: "row",
                 }}
               >
-                <Text
+                {/* Retry Quiz button BEGINS*/}
+                <TouchableOpacity
+                  onPress={restartQuiz}
                   style={{
-                    textAlign: "center",
-                    color: COLORS.white,
-                    fontSize: 20,
+                    backgroundColor: COLORS.accent,
+                    padding: 20,
+                    width: "50%",
+                    borderRadius: 20,
+                    margin: "1%",
                   }}
                 >
-                  Retry Quiz
-                </Text>
-              </TouchableOpacity>
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      color: COLORS.white,
+                      fontSize: 20,
+                    }}
+                  >
+                    Retry
+                  </Text>
+                </TouchableOpacity>
+                {/* Retry Quiz button ENDS*/}
+
+                {/* Exist Quiz button BEGINS */}
+
+                <TouchableOpacity
+                  onPress={exitButtonHandler}
+                  style={{
+                    backgroundColor: COLORS.accent,
+                    padding: 20,
+                    width: "50%",
+                    borderRadius: 20,
+                    margin: "1%",
+                  }}
+                >
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      color: COLORS.white,
+                      fontSize: 20,
+                    }}
+                  >
+                    Exit
+                  </Text>
+                </TouchableOpacity>
+                {/* Exist Quiz button ENDS */}
+              </View>
             </View>
           </View>
         </Modal>
