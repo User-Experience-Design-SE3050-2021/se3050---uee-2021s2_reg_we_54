@@ -1,21 +1,60 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, View, StyleSheet, Text, Image, Alert, ImageBackground } from 'react-native';
+import { Card, Button } from 'react-native-elements';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const ShowCollage = ({ route, navigation }) => {
     //const navigation = useNavigation();
-    const { title } = route.params;
+    const { title, imageUrl, desctiption, videoUrl } = route.params;
+    const bimage = { uri: 'https://png.pngtree.com/thumb_back/fh260/back_our/20190617/ourmid/pngtree-cartoon-kid-rainbow-light-green-background-material-image_129842.jpg' }
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.heading}>{title}</Text>
-            {/* <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-                <FlatList
-                    numColumns={1}
-                    data={DATA}
-                    renderItem={renderItem}
-                    keyExtractor={item => item.id}
-                />
-            </TouchableOpacity> */}
+            <ScrollView>
+                <ImageBackground source={bimage} resizeMode="cover" style={styles.bimage}>
+                    <Text style={styles.heading}>{title}</Text>
+                    <Card containerStyle={styles.CollageArt}>
+                        <Card.Title>Needed Matirials</Card.Title>
+                        <Card.Divider />
+                        <Text>Scissor</Text>
+                        <Text>Any Color Half Sheet</Text>
+                        <Text>Rule</Text>
+                        <Text>Pencil</Text>
+                        <Text>Eraser</Text>
+                    </Card>
+                    <Card containerStyle={styles.CollageArt}>
+                        <Card.Title>Creating Step by steps</Card.Title>
+                        <Card.Divider />
+                        <Text>Scissor</Text>
+                        <Text>Any Color Half Sheet</Text>
+                        <Text>Rule</Text>
+                        <Text>Pencil</Text>
+                        <Text>Eraser</Text>
+                    </Card>
+                    <Card containerStyle={styles.CollageArt}>
+                        <Card.Title>Final Result</Card.Title>
+                        <Card.Divider />
+                        <View style={styles.fixToText}>
+                            <Image
+                                style={styles.image}
+                                source={{
+                                    uri: imageUrl,
+                                }}
+                            />
+                        </View>
+                        <View>
+                            <View style={styles.fixToText}>
+                                <Button
+                                    buttonStyle={{ borderWidth: 1, borderColor: 'black', backgroundColor: '#79f2a1', borderStyle: 'solid', borderRadius: 10 }}
+                                    title='Watch Video'
+                                    titleStyle={{ color: 'black' }}
+                                //onPress={() => navigation.navigate("Origami")}
+                                />
+                            </View>
+                        </View>
+                    </Card>
+                </ImageBackground>
+            </ScrollView>
         </SafeAreaView>
     );
 }
@@ -23,28 +62,23 @@ const ShowCollage = ({ route, navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // marginTop: StatusBar.currentHeight || 0,
-        backgroundColor: "#F7EDFF",
     },
-    item: {
-        backgroundColor: '#F43B86',
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 25,
+    bimage: {
         flex: 1,
-        borderRadius: 5,
+        justifyContent: "center"
     },
     title: {
         fontSize: 20,
         textAlign: 'left',
         fontWeight: 'bold',
-        // fontFamily: "Franklin Gothic Demi"
     },
     image: {
         marginTop: 10,
         width: 120,
         height: 90,
-        justifyContent: 'flex-start'
+        justifyContent: 'center',
+        borderRadius: 10,
+        marginBottom: 10,
     },
     text: {
         justifyContent: 'flex-end',
@@ -54,7 +88,30 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 30,
-        //fontFamily: "Franklin Gothic Demi"
+    },
+    CollageArt: {
+        backgroundColor: "#40e677",
+        borderColor: 'black',
+        borderRadius: 10,
+        marginTop: 15,
+        marginHorizontal: 40,
+    },
+    title: {
+        textAlign: 'center',
+        marginVertical: 8,
+    },
+    fixToText: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+
+    },
+    separator: {
+        marginVertical: 8,
+        borderBottomColor: '#737373',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+    },
+    fonts: {
+        marginBottom: 8,
     },
 });
 

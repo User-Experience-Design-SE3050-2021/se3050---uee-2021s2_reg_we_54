@@ -1,15 +1,15 @@
 import React from "react";
-import { StyleSheet, View, ScrollView, Text, Image, ImageBackground } from 'react-native'
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, View, Text, Image,ImageBackground } from 'react-native'
 import { Card, Button } from 'react-native-elements';
 import { useNavigation } from "@react-navigation/core";
+
+const image = {uri:"https://png.pngtree.com/background/20210711/original/pngtree-student-learning-poster-background-picture-image_1082820.jpg"}
 
 const Activity = () => {
     const navigation = useNavigation();
     return (
-        <SafeAreaView>
-        <ScrollView>
         <View style={styles.MainContainer}>
+            <ImageBackground source={image} resizeMode="cover" style={styles.image}>
             <Text style={styles.heading}>Activity For Kids</Text>
             <View style={{ margin: 'auto' }}>
                 <Card containerStyle={styles.Origami}>
@@ -30,8 +30,9 @@ const Activity = () => {
                         </View>
                     </View>
                     <Button
-                        buttonStyle={{ borderRadius: 5, backgroundColor: '#EC9ADA', width: 120, maxHeight: 60, marginLeft: 'auto' }}
-                        title='VIEW'
+                        buttonStyle={{ borderRadius: 10, backgroundColor: '#6fd3e3', width: 120, maxHeight: 60, marginLeft: 'auto' }}
+                        title='View'
+                        titleStyle={{ color: 'black' }}
                         onPress={() => navigation.navigate("Origami")}
                     />
                 </Card>
@@ -56,15 +57,16 @@ const Activity = () => {
                         </View>
                     </View>
                     <Button
-                        buttonStyle={{ borderRadius: 5, backgroundColor: '#EFF264', width: 120, maxHeight: 60, marginLeft: 'auto' }}
-                        title='VIEW'
+                        buttonStyle={{ borderRadius: 10, backgroundColor: '#79f2a1', width: 120, maxHeight: 60, marginLeft: 'auto'}}
+                        title='View'
+                        titleStyle={{ color: 'black' }}
                         onPress={() => navigation.navigate("CollageArt")}
                     />
                 </Card>
             </View>
+            </ImageBackground>
         </View>
-        </ScrollView>
-        </SafeAreaView>
+      
     );
 };
 
@@ -75,16 +77,24 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 40,
+        marginTop:1
     },
     MainContainer: {
+        flex: 1,  
+    },
+    image: {
         flex: 1,
-        backgroundColor: "#F7EDFF",
+        justifyContent: "center"
     },
     Origami: {
-        backgroundColor: "#F43B86",
+        backgroundColor: "#43cbe0",
+        borderColor:'black',
+        borderRadius: 10,
     },
     CollageArt: {
-        backgroundColor: "#FDD20E"
+        backgroundColor: "#40e677",
+        borderColor:'black',
+        borderRadius: 10,
     },
     logo: {
         marginTop:10,
