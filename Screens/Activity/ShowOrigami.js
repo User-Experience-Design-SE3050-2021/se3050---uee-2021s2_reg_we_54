@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, StyleSheet, Text, Image, ImageBackground } from 'react-native';
+import { SafeAreaView, View, StyleSheet, Text, Image, Linking, ImageBackground } from 'react-native';
 import { Card, Button } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -10,49 +10,45 @@ const ShowOrigami = ({ route, navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-            <ImageBackground source={bimage} resizeMode="cover" style={styles.bimage}>
-                <Text style={styles.heading}>{title}</Text>
-                <Card containerStyle={styles.Origami}>
-                    <Card.Title>Needed Matirials</Card.Title>
-                    <Card.Divider />
-                    <Text>Scissor</Text>
-                    <Text>Any Color Half Sheet</Text>
-                    <Text>Rule</Text>
-                    <Text>Pencil</Text>
-                    <Text>Eraser</Text>
-                </Card>
-                <Card containerStyle={styles.Origami}>
-                    <Card.Title>Creating Step by steps</Card.Title>
-                    <Card.Divider />
-                    <Text>Scissor</Text>
-                    <Text>Any Color Half Sheet</Text>
-                    <Text>Rule</Text>
-                    <Text>Pencil</Text>
-                    <Text>Eraser</Text>
-                </Card>
-                <Card containerStyle={styles.Origami}>
-                    <Card.Title>Final Result</Card.Title>
-                    <Card.Divider />
-                    <View style={styles.fixToText}>
-                        <Image
-                            style={styles.image}
-                            source={{
-                                uri: imageUrl,
-                            }}
-                        />
-                    </View>
-                    <View>
+                <ImageBackground source={bimage} resizeMode="cover" style={styles.bimage}>
+                    <Text style={styles.heading}>{title}</Text>
+                    <Card containerStyle={styles.Origami}>
+                        <Card.Title>Needed Matirials</Card.Title>
+                        <Card.Divider />
+                        <Text>Scissor</Text>
+                        <Text>Any Color Half Sheet</Text>
+                        <Text>Glue</Text>
+                        <Text>Color Pencil</Text>
+                        <Text>Eraser</Text>
+                    </Card>
+                    <Card containerStyle={styles.Origami}>
+                        <Card.Title>Creating Step by steps</Card.Title>
+                        <Card.Divider />
+                        <Text>{desctiption}</Text>
+                    </Card>
+                    <Card containerStyle={styles.Origami}>
+                        <Card.Title>Final Result</Card.Title>
+                        <Card.Divider />
                         <View style={styles.fixToText}>
-                            <Button
-                                buttonStyle={{ borderWidth: 1, borderColor: 'black', backgroundColor: '#0ef0e1', borderStyle: 'solid', borderRadius: 10 }}
-                                title='Watch Video'
-                                titleStyle={{ color: 'black' }}
-                                //onPress={videoUrl}
+                            <Image
+                                style={styles.image}
+                                source={{
+                                    uri: imageUrl,
+                                }}
                             />
                         </View>
-                    </View>
-                </Card>
-            </ImageBackground>
+                        <View>
+                            <View style={styles.fixToText}>
+                                <Button
+                                    buttonStyle={{ borderWidth: 1, borderColor: 'black', backgroundColor: '#0ef0e1', borderStyle: 'solid', borderRadius: 10 }}
+                                    title='Watch Video'
+                                    titleStyle={{ color: 'black' }}
+                                    onPress={() => Linking.openURL(videoUrl)}
+                                />
+                            </View>
+                        </View>
+                    </Card>
+                </ImageBackground>
             </ScrollView>
         </SafeAreaView>
     );

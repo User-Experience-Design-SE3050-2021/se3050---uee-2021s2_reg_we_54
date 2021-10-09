@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, StyleSheet, Text, Image, Alert, ImageBackground } from 'react-native';
+import { SafeAreaView, View, StyleSheet, Text, Image, Linking, ImageBackground } from 'react-native';
 import { Card, Button } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -18,18 +18,14 @@ const ShowCollage = ({ route, navigation }) => {
                         <Card.Divider />
                         <Text>Scissor</Text>
                         <Text>Any Color Half Sheet</Text>
-                        <Text>Rule</Text>
-                        <Text>Pencil</Text>
+                        <Text>Glue</Text>
+                        <Text>Color Pencil</Text>
                         <Text>Eraser</Text>
                     </Card>
                     <Card containerStyle={styles.CollageArt}>
                         <Card.Title>Creating Step by steps</Card.Title>
                         <Card.Divider />
-                        <Text>Scissor</Text>
-                        <Text>Any Color Half Sheet</Text>
-                        <Text>Rule</Text>
-                        <Text>Pencil</Text>
-                        <Text>Eraser</Text>
+                        <Text>{desctiption}</Text>
                     </Card>
                     <Card containerStyle={styles.CollageArt}>
                         <Card.Title>Final Result</Card.Title>
@@ -48,7 +44,7 @@ const ShowCollage = ({ route, navigation }) => {
                                     buttonStyle={{ borderWidth: 1, borderColor: 'black', backgroundColor: '#79f2a1', borderStyle: 'solid', borderRadius: 10 }}
                                     title='Watch Video'
                                     titleStyle={{ color: 'black' }}
-                                //onPress={() => navigation.navigate("Origami")}
+                                    onPress={() => Linking.openURL(videoUrl)}
                                 />
                             </View>
                         </View>
