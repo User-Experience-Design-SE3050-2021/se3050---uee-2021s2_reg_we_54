@@ -105,7 +105,7 @@ const Origami = () => {
                     numColumns={1}
                     data={filteredDataSource}
                     renderItem={({ item }) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("ShowOrigami", item)}>
+                        <TouchableOpacity onPress={() => navigation.navigate("Show Origami", item)}>
                             <Item title={item.title} imageUrl={item.imageUrl} text={item.text} desctiption={item.desctiption} videoUrl={item.videoUrl} />
                         </TouchableOpacity>
                     )}
