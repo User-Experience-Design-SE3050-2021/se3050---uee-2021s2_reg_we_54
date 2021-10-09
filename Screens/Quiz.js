@@ -291,13 +291,14 @@ const Quiz = () => {
               }}
             >
               <LottieView
-                style={{
-                  width: 400,
-                  height: 400,
-                  backgroundColor: "#0000",
-                }}
-                source={require("../assets/happyAnimation.json")}
+                style={{ height: 300, width: "100%" }}
+                source={
+                  score > allQuestions.length / 2
+                    ? require("../assets/happyAnimation.json")
+                    : require("../assets/sadAnimation.json")
+                }
                 loop={true}
+                autoPlay
                 speed={1}
               />
               <Text style={{ fontSize: 30, fontWeight: "bold" }}>
@@ -314,7 +315,7 @@ const Quiz = () => {
               >
                 <Text
                   style={{
-                    fontSize: 30,
+                    fontSize: 50,
                     color:
                       score > allQuestions.length / 2
                         ? COLORS.success
@@ -325,7 +326,7 @@ const Quiz = () => {
                 </Text>
                 <Text
                   style={{
-                    fontSize: 20,
+                    fontSize: 50,
                     color: COLORS.black,
                   }}
                 >
