@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, BackHandler, Alert } from "react-native";
+import { StyleSheet, View, BackHandler, Alert, Image } from "react-native";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
@@ -42,8 +42,18 @@ const DrawerContent = (props) => {
         <View style={styles.drawerContent}>
           {/* top header section BEGINS */}
           <View style={styles.userInfoSection}>
-            <Text style={{ fontSize: 25, fontWeight: "bold" }}>
-              Kids Learning App
+            <Image
+              source={require("../assets/adaptive-icon.png")}
+              style={{ height: 150, width: "100%", resizeMode: "cover" }}
+            />
+            <Text
+              style={{
+                fontSize: 25,
+                fontWeight: "bold",
+                marginBottom: "25%",
+              }}
+            >
+              Easy Kids Learning
             </Text>
           </View>
           {/* top header section ENDS */}
@@ -119,7 +129,7 @@ const styles = StyleSheet.create({
   },
   userInfoSection: {
     paddingLeft: 20,
-    height: "12%",
+    height: "25%",
   },
   title: {
     fontSize: 16,
@@ -145,7 +155,7 @@ const styles = StyleSheet.create({
     marginRight: 3,
   },
   drawerSection: {
-    marginTop: 15,
+    marginTop: 40,
   },
   bottomDrawerSection: {
     marginBottom: 15,
