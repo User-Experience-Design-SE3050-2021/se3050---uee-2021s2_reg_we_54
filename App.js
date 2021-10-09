@@ -18,8 +18,6 @@ import CollageArt from "./Screens/Activity/CollageArt";
 import ShowOrigami from "./Screens/Activity/ShowOrigami";
 import ShowCollage from "./Screens/Activity/ShowCollage";
 
-
-
 const LanguageStack = createStackNavigator();
 const StoryStack = createStackNavigator();
 const TaskStack = createStackNavigator();
@@ -56,13 +54,7 @@ const QuizStackScreens = ({ navigation }) => (
 // FOR STORIES
 const StoryScreens = () => (
   <StoryStack.Navigator>
-          <StoryStack.Screen name="QuizList" component={QuizList} />
-          <StoryStack.Screen name="StoryList" component={StoryList} />
-          <StoryStack.Screen name="Activity" component={Activity} />
-          <StoryStack.Screen name="Origami" component={Origami} />
-          <StoryStack.Screen name="CollageArt" component={CollageArt} />
-          <StoryStack.Screen name="ShowOrigami" component={ShowOrigami} />
-          <StoryStack.Screen name="ShowCollage" component={ShowCollage} />
+    <StoryStack.Screen name="" />
   </StoryStack.Navigator>
 );
 
@@ -76,10 +68,13 @@ const LanguageScreens = () => (
 // FOR TASKS
 const TaskScreens = () => (
   <TaskStack.Navigator>
-    <TaskStack.Screen name="" />
+    <TaskStack.Screen name="Activity" component={Activity} />
+    <TaskStack.Screen name="Origami" component={Origami} />
+    <TaskStack.Screen name="CollageArt" component={CollageArt} />
+    <TaskStack.Screen name="ShowOrigami" component={ShowOrigami} />
+    <TaskStack.Screen name="ShowCollage" component={ShowCollage} />
   </TaskStack.Navigator>
 );
-
 
 export default function App() {
   return (
