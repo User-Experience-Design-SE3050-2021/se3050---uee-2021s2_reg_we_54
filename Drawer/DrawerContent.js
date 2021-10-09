@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, BackHandler, Alert } from "react-native";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
@@ -19,6 +19,23 @@ import IconFontAwesome from "react-native-vector-icons/FontAwesome";
 import IconFontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
 const DrawerContent = (props) => {
+  const handlerBackButton = () => {
+    Alert.alert(
+      "Are you sure want to exit?",
+      "",
+      [
+        {
+          text: "No",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel",
+        },
+        { text: "Yes", onPress: () => BackHandler.exitApp() },
+      ],
+      { cancelable: false }
+    );
+    return true;
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <DrawerContentScrollView {...props}>
@@ -87,6 +104,7 @@ const DrawerContent = (props) => {
             <Icon name="exit-to-app" color={color} size={size} />
           )}
           label="Exit"
+          onPress={handlerBackButton}
         />
       </Drawer.Section>
     </SafeAreaView>
