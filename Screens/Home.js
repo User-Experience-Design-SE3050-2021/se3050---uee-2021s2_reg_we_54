@@ -9,11 +9,6 @@ const Home = () => {
     <SafeAreaView>
       <View>
         <Text>THisi s home</Text>
-        <Button title="nav" onPress={() => navigation.navigate("Quiz")} />
-        <Button
-          title="QuizList"
-          onPress={() => navigation.navigate("QuizList")}
-        />
       </View>
     </SafeAreaView>
   );
