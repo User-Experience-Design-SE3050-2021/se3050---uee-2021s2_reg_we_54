@@ -11,6 +11,14 @@ import Icon from "react-native-vector-icons/Ionicons";
 import Home from "./Screens/Home";
 import QuizList from "./Screens/QuizList";
 import Quiz from "./Screens/Quiz";
+import StoryList from "./Screens/StoryList";
+import Activity from "./Screens/Activity/Activity";
+import Origami from "./Screens/Activity/Origami";
+import CollageArt from "./Screens/Activity/CollageArt";
+import ShowOrigami from "./Screens/Activity/ShowOrigami";
+import ShowCollage from "./Screens/Activity/ShowCollage";
+
+
 
 const LanguageStack = createStackNavigator();
 const StoryStack = createStackNavigator();
@@ -48,7 +56,13 @@ const QuizStackScreens = ({ navigation }) => (
 // FOR STORIES
 const StoryScreens = () => (
   <StoryStack.Navigator>
-    <StoryStack.Screen name="" />
+          <StoryStack.Screen name="QuizList" component={QuizList} />
+          <StoryStack.Screen name="StoryList" component={StoryList} />
+          <StoryStack.Screen name="Activity" component={Activity} />
+          <StoryStack.Screen name="Origami" component={Origami} />
+          <StoryStack.Screen name="CollageArt" component={CollageArt} />
+          <StoryStack.Screen name="ShowOrigami" component={ShowOrigami} />
+          <StoryStack.Screen name="ShowCollage" component={ShowCollage} />
   </StoryStack.Navigator>
 );
 
@@ -65,6 +79,7 @@ const TaskScreens = () => (
     <TaskStack.Screen name="" />
   </TaskStack.Navigator>
 );
+
 
 export default function App() {
   return (
