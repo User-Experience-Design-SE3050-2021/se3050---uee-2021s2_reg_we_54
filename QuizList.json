@@ -1,0 +1,90 @@
+{
+  "data": [
+    {
+      "quizTitle": "Quiz One",
+      "quizData": [
+        {
+          "question": "What’s the biggest planet in our solar system?",
+          "options": ["Jupiter", "Saturn", "Neptune", "Mercury"],
+          "correct_option": "Jupiter"
+        },
+        {
+          "question": "What attraction in India is one of the famus in the world?",
+          "options": ["Chand Minar", "Taj Mahal", "Stadium"],
+          "correct_option": "Taj Mahal"
+        },
+        {
+          "question": "What land animal can open its mouth the widest?",
+          "options": ["Alligator", "Crocodile", "Baboon", "Hippo"],
+          "correct_option": "Hippo"
+        },
+        {
+          "question": "What is the largest animal on Earth?",
+          "options": [
+            "The African elephant",
+            "The blue whale",
+            "The sperm whale",
+            "The giant squid"
+          ],
+          "correct_option": "The blue whale"
+        },
+        {
+          "question": "What is the only flying mammal?",
+          "options": [
+            "The bat",
+            "The flying squirrel",
+            "The bald eagle",
+            "The colugo"
+          ],
+          "correct_option": "The bat"
+        }
+      ],
+      "isAttempted": false,
+      "marks": 0
+    },
+    {
+      "quizTitle": "Quiz Two",
+      "quizData": [
+        {
+          "question": "After “Thursday” comes what day?",
+          "options": ["Wednesday", "Saturday", "Friday", "Sunday"],
+          "correct_option": "Friday"
+        },
+        {
+          "question": "What does a plant need the most to live?",
+          "options": ["Sun, water, and air", "Dark light", "A friend", "Music"],
+          "correct_option": "Sun, water, and air"
+        },
+        {
+          "question": "What rhymes with “rat”?",
+          "options": ["Run", "Jump", "Pig", "Bat"],
+          "correct_option": "Bat"
+        }
+      ],
+      "isAttempted": false,
+      "marks": 0
+    },
+    {
+      "quizTitle": "Quiz Three",
+      "quizData": [
+        {
+          "question": "What word also starts with the same sound as “ball”?",
+          "options": ["Baby", "Dog", "Apple", "Cat"],
+          "correct_option": "Dog"
+        },
+        {
+          "question": "Red and blue mixed together make what color?",
+          "options": ["Yellow", "Green", "Purple", "Orange"],
+          "correct_option": "Purple"
+        },
+        {
+          "question": "What is the color of the sun?",
+          "options": ["Green", "Brown", "Purple", "Yellow"],
+          "correct_option": "Yellow"
+        }
+      ],
+      "isAttempted": false,
+      "marks": 0
+    }
+  ]
+}
