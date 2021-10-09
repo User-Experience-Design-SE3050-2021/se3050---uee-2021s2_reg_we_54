@@ -1,73 +1,25 @@
 import React from "react";
 import {
-    StyleSheet, Text, View, ImageBackground, SafeAreaView, Image,
-    ToastAndroid, Platform
+    StyleSheet, Text, View, ImageBackground, Image
 } from "react-native";
-import { useNavigation } from "@react-navigation/core";
-import { Button, Icon } from 'react-native-elements';
-import bars from 'react-native-vector-icons/FontAwesome';
-import FavoriteData from './FavoriteData.json'
 
 const backgroundImage = { uri: "https://i.pinimg.com/236x/8d/1a/8a/8d1a8a9d4fc921c67222a0f6ed7faeee.jpg" };
 
-const WordDetails = ({ route, navigation }) => {
+const FavoriteWordInfo = ({ route, navigation }) => {
 
     const { title, imageUrl, description, sinhalaWord, tamilWord, color, firstLetter } = route.params;
-    const data = [];
-
-    const notifyMessage = (msg) => {
-        if (Platform.OS === 'android') {
-            ToastAndroid.show(msg, ToastAndroid.SHORT)
-        } else {
-            alert(msg);
-        }
-    }
-
-    const addedFavorites = () => {
-        const word = {
-            title: title,
-            imageUrl: imageUrl,
-            description: description,
-            color: color,
-            firstLetter: firstLetter,
-            sinhalaWord: sinhalaWord,
-            tamilWord: tamilWord,
-        }
-        const index = FavoriteData.data.findIndex(function (existword, index) {
-            return existword.title === word.title
-        })
-        if (index === -1) {
-            FavoriteData.data.push(word);
-        } else if (Platform.OS === 'android') {
-            ToastAndroid.show("Alredy added to Favorites", ToastAndroid.SHORT)
-        } else {
-            alert("Alredy added to Favorites")
-        }
-    }
 
     return (
         <ImageBackground source={backgroundImage} resizeMode="cover" style={styles.backgroundImage}>
             <View style={{
                 backgroundColor: color,
-                padding: 10,
+                padding: 20,
                 marginVertical: 8,
                 marginHorizontal: 16,
                 flex: 1,
                 borderRadius: 20
             }}>
                 <Text style={styles.heading}>{title}</Text>
-                <View style={styles.favorite}>
-                    <Icon
-                        raised
-                        name='star'
-                        type='font-awesome'
-                        color='#f50'
-                        onPress={() => {
-                            notifyMessage("Added favorite List")
-                            addedFavorites()
-                            navigation.navigate("English Learning")
-                        }} />
-                </View>
                 <Image
                     style={styles.image}
                     source={{
@@ -82,7 +34,7 @@ const WordDetails = ({ route, navigation }) => {
     );
 };
 
-export default WordDetails;
+export default FavoriteWordInfo;
 
 const styles = StyleSheet.create({
     image: {
