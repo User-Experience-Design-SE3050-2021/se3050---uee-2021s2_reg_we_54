@@ -26,7 +26,7 @@ const DrawerContent = (props) => {
       [
         {
           text: "No",
-          onPress: () => console.log("Cancel Pressed"),
+          onPress: () => {},
           style: "cancel",
         },
         { text: "Yes", onPress: () => BackHandler.exitApp() },
