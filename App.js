@@ -11,6 +11,8 @@ import Language from "./Screens/Language"
 import EnglishLanguage from "./Screens/EnglishLanguage";
 import SinhalaLanguage from "./Screens/SinhalaLanguage";
 import TamilLanguage from "./Screens/TamilLanguage";
+import WordDetails from "./Screens/WordDetails"
+import LanguageQuiz from "./Screens/LanguageQuiz"
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -28,6 +30,8 @@ export default function App() {
           <Stack.Screen name="English Learning" component={EnglishLanguage} />
           <Stack.Screen name="Sinhala Learning" component={SinhalaLanguage} />
           <Stack.Screen name="Tamil Learning" component={TamilLanguage} />
+          <Stack.Screen name="Word Details" component={WordDetails} />
+          <Stack.Screen name="Language Quiz" component={LanguageQuiz} />
         </Stack.Navigator>
       </SafeAreaProvider>
     </NavigationContainer>
