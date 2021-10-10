@@ -8,7 +8,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./Screens/Home";
 import QuizList from "./Screens/QuizList";
 import StoryList from "./Screens/StoryList";
-
+import StoryHome from "./Screens/StoryHome";
 const Stack = createStackNavigator();
 export default function App() {
   return (
@@ -21,6 +21,7 @@ export default function App() {
             options={{ headerShown: false }}
           />
           <Stack.Screen name="QuizList" component={QuizList} />
+          <Stack.Screen name="StoryHome" component={StoryHome} options={{title:"Story List"}}/>
           <Stack.Screen name="StoryList" component={StoryList} />
         </Stack.Navigator>
       </SafeAreaProvider>

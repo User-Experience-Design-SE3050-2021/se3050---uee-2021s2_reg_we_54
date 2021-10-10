@@ -10,7 +10,7 @@ const Home = () => {
       <View>
         <Text>THisi s home</Text>
         <Button title="nav" onPress={() => navigation.navigate("QuizList")} />
-        <Button title="stories" onPress={() => navigation.navigate("StoryList")} />
+        <Button title="stories" onPress={() => navigation.navigate("StoryHome")} />
       </View>
     </SafeAreaView>
   );
