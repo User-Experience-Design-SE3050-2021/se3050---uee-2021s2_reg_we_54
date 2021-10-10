@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 60,
         marginTop: 0,
-        fontFamily: "Arial Black",
         color: "white",
     },
 

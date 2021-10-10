@@ -134,7 +134,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         fontWeight: 'bold',
-        // fontFamily: "Franklin Gothic Demi"
     },
     image: {
         width: 100,
