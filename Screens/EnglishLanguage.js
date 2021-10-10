@@ -365,7 +365,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         fontWeight: 'bold',
-        // fontFamily: "Franklin Gothic Demi"
     },
     firstLetter: {
         color: 'red',

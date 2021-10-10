@@ -61,6 +61,7 @@ const WordDetails = ({ route, navigation }) => {
                         raised
                         name='star'
                         type='font-awesome'
+                        style={styles.starButton}
                         color='#f50'
                         onPress={() => {
                             notifyMessage("Added favorite List")
@@ -107,6 +108,10 @@ const styles = StyleSheet.create({
     favorite: {
         marginTop: 10,
         marginRight: 5,
+    },
+    starButton: {
+        marginTop: 50,
+        marginRight: 50,
     },
     sinhalaWord: {
         marginTop: 10,
