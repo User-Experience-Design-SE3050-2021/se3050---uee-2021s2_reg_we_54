@@ -14,7 +14,7 @@ se3050---uee-2021s2_reg_we_54 created by GitHub Classroom
   <tr>
     <td>Perera H.K.P.S</td>
     <td>IT19131016</td>
-    <td>IT19131016</td>
+    <td>PunsisiPerera</td>
   </tr>
    <tr>
     <td>Weerasinghe W.A.H.T</td>
@@ -24,11 +24,11 @@ se3050---uee-2021s2_reg_we_54 created by GitHub Classroom
   <tr>
     <td>Wickramasekara T.M.A.M</td>
     <td>IT19016962</td>
-    <td>IT19016962</td>
+    <td>abimanu-devl</td>
   </tr>
   <tr>
     <td>Gunaratne U.A</td>
     <td>IT19753140</td>
-    <td>IT19753140</td>
+    <td>ushan1997</td>
   </tr>
 </table>
