@@ -17,13 +17,13 @@ import Origami from "./Screens/Activity/Origami";
 import CollageArt from "./Screens/Activity/CollageArt";
 import ShowOrigami from "./Screens/Activity/ShowOrigami";
 import ShowCollage from "./Screens/Activity/ShowCollage";
-import Language from "./Screens/Language"
+import Language from "./Screens/Language";
 import EnglishLanguage from "./Screens/EnglishLanguage";
 import SinhalaLanguage from "./Screens/SinhalaLanguage";
 import TamilLanguage from "./Screens/TamilLanguage";
 import WordDetails from "./Screens/WordDetails";
 import FavoriteWord from "./Screens/FavoriteWord";
-import FavoriteWordInfo from "./Screens/FavoriteWordInfo"
+import FavoriteWordInfo from "./Screens/FavoriteWordInfo";
 
 const LanguageStack = createStackNavigator();
 const StoryStack = createStackNavigator();
@@ -89,7 +89,10 @@ const LanguageScreens = ({ navigation }) => (
     <LanguageStack.Screen name="Tamil Learning" component={TamilLanguage} />
     <LanguageStack.Screen name="Word Details" component={WordDetails} />
     <LanguageStack.Screen name="Favorite Word" component={FavoriteWord} />
-    <LanguageStack.Screen name="Favorite WordInfo" component={FavoriteWordInfo} />
+    <LanguageStack.Screen
+      name="Favorite WordInfo"
+      component={FavoriteWordInfo}
+    />
   </LanguageStack.Navigator>
 );
 
@@ -119,13 +122,12 @@ const TaskScreens = ({ navigation }) => (
   </TaskStack.Navigator>
 );
 
-
 export default function App() {
   return (
     <NavigationContainer>
       <SafeAreaProvider>
         <Drawer.Navigator
-          initialRouteName="QuizStack"
+          initialRouteName="LanguageStack"
           drawerContent={(props) => <DrawerContent {...props} />}
         >
           <Drawer.Screen
@@ -148,9 +150,9 @@ export default function App() {
             component={TaskScreens}
             options={{ headerShown: false }}
           />
-        </Drawer.Navigator >
-      </SafeAreaProvider >
-    </NavigationContainer >
+        </Drawer.Navigator>
+      </SafeAreaProvider>
+    </NavigationContainer>
   );
 }
 
