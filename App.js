@@ -66,9 +66,24 @@ const LanguageScreens = () => (
 );
 
 // FOR TASKS
-const TaskScreens = () => (
+const TaskScreens = ({ navigation }) => (
   <TaskStack.Navigator>
-    <TaskStack.Screen name="Activity" component={Activity} />
+    <TaskStack.Screen
+      name="Activity"
+      component={Activity}
+      options={{
+        title: "Quiz List",
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={25}
+            backgroundColor="#FFF"
+            color="black"
+            onPress={() => navigation.toggleDrawer()}
+          />
+        ),
+      }}
+    />
     <TaskStack.Screen name="Origami" component={Origami} />
     <TaskStack.Screen name="CollageArt" component={CollageArt} />
     <TaskStack.Screen name="Show Origami" component={ShowOrigami} />

@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Animated,
   Modal,
+  ActivityIndicator,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS, SIZES } from "../assets/Constants/theme";
@@ -28,6 +29,7 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [showNextButton, setShowNextButton] = useState(false);
   const [showScoreModal, setShowScoreModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const renderQuestion = () => (
     <View
@@ -238,9 +240,11 @@ const Quiz = () => {
   };
 
   const exitButtonHandler = async () => {
+    setIsLoading(true);
     const quizRef = DB.collection("quizes").doc(route.params.quizId);
 
     await quizRef.update({ isAttempted: true, marks: score });
+    setIsLoading(false);
     navigation.navigate("QuizList");
   };
 
@@ -291,13 +295,14 @@ const Quiz = () => {
               }}
             >
               <LottieView
-                style={{
-                  width: 400,
-                  height: 400,
-                  backgroundColor: "#0000",
-                }}
-                source={require("../assets/happyAnimation.json")}
+                style={{ height: 300, width: "100%" }}
+                source={
+                  score > allQuestions.length / 2
+                    ? require("../assets/happyAnimation.json")
+                    : require("../assets/sadAnimation.json")
+                }
                 loop={true}
+                autoPlay
                 speed={1}
               />
               <Text style={{ fontSize: 30, fontWeight: "bold" }}>
@@ -314,7 +319,7 @@ const Quiz = () => {
               >
                 <Text
                   style={{
-                    fontSize: 30,
+                    fontSize: 50,
                     color:
                       score > allQuestions.length / 2
                         ? COLORS.success
@@ -325,7 +330,7 @@ const Quiz = () => {
                 </Text>
                 <Text
                   style={{
-                    fontSize: 20,
+                    fontSize: 50,
                     color: COLORS.black,
                   }}
                 >
@@ -366,6 +371,7 @@ const Quiz = () => {
 
                 <TouchableOpacity
                   onPress={exitButtonHandler}
+                  disabled={isLoading}
                   style={{
                     backgroundColor: COLORS.accent,
                     padding: 20,
@@ -374,15 +380,19 @@ const Quiz = () => {
                     margin: "1%",
                   }}
                 >
-                  <Text
-                    style={{
-                      textAlign: "center",
-                      color: COLORS.white,
-                      fontSize: 20,
-                    }}
-                  >
-                    Exit
-                  </Text>
+                  {isLoading ? (
+                    <ActivityIndicator size="large" color="#fff" />
+                  ) : (
+                    <Text
+                      style={{
+                        textAlign: "center",
+                        color: COLORS.white,
+                        fontSize: 20,
+                      }}
+                    >
+                      Exit
+                    </Text>
+                  )}
                 </TouchableOpacity>
                 {/* Exist Quiz button ENDS */}
               </View>
