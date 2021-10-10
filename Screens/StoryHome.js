@@ -7,7 +7,8 @@ import{
     SafeAreaView,
     TouchableOpacity,
     TextInput,
-    FlatList
+    FlatList,
+    ImageBackground
 } from 'react-native';
 import storyList from "./dummyData";
 import StoryCard from "./StoryCard";
@@ -46,14 +47,15 @@ const StoryHome = ({navigation})=>{
 
     function renderFav(){
         return(
+           
             <View
             style={{
                 flexDirection:'row',
                 marginTop:24,
                 marginBottom:20,
                 marginHorizontal:24,
-                borderRadius:18,
-                backgroundColor:'#E0EEEE'
+                borderRadius:17,
+                backgroundColor:"#63D1F4"
             }}
             >
                 <View
@@ -65,7 +67,7 @@ const StoryHome = ({navigation})=>{
                 >
                     <Image 
                     source={{
-                        uri: 'https://i.ibb.co/fpcGYfQ/depositphotos-122056114-stock-illustration-cartoon-fish-under-the-sea.jpg'
+                        uri: 'https://i.ibb.co/wg1N8tK/fav.png'
                           }}
                     style={{
                         width:88,
@@ -94,6 +96,7 @@ const StoryHome = ({navigation})=>{
         )
     }
     return(
+        
         <SafeAreaView
         style={{
             flex:1,
@@ -106,7 +109,7 @@ const StoryHome = ({navigation})=>{
             showsVerticalScrollIndicator={false}
             ListHeaderComponent={
                 <View>
-                    {renderHeader()}
+                    {/* {renderHeader()} */}
                     {renderFav()}
                 </View>
             }
