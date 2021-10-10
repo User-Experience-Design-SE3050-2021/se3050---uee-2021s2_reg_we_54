@@ -12,6 +12,8 @@ import Home from "./Screens/Home";
 import QuizList from "./Screens/QuizList";
 import Quiz from "./Screens/Quiz";
 import StoryList from "./Screens/StoryList";
+import StoryHome from "./Screens/StoryHome";
+
 import Activity from "./Screens/Activity/Activity";
 import Origami from "./Screens/Activity/Origami";
 import CollageArt from "./Screens/Activity/CollageArt";
@@ -61,7 +63,9 @@ const QuizStackScreens = ({ navigation }) => (
 // FOR STORIES
 const StoryScreens = () => (
   <StoryStack.Navigator>
-    <StoryStack.Screen name="" />
+    <StoryStack.Screen name="QuizList" component={QuizList} />
+    <StoryStack.Screen name="StoryHome" component={StoryHome} options={{title:"Story List"}}/>
+    <StoryStack.Screen name="StoryList" component={StoryList} />
   </StoryStack.Navigator>
 );
 
@@ -121,6 +125,7 @@ const TaskScreens = ({ navigation }) => (
     <TaskStack.Screen name="Show Collage" component={ShowCollage} />
   </TaskStack.Navigator>
 );
+
 
 export default function App() {
   return (
