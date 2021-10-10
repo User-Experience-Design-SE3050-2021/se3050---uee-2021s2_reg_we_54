@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Animated,
   Modal,
+  ActivityIndicator,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS, SIZES } from "../assets/Constants/theme";
@@ -28,6 +29,7 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [showNextButton, setShowNextButton] = useState(false);
   const [showScoreModal, setShowScoreModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const renderQuestion = () => (
     <View
@@ -238,9 +240,11 @@ const Quiz = () => {
   };
 
   const exitButtonHandler = async () => {
+    setIsLoading(true);
     const quizRef = DB.collection("quizes").doc(route.params.quizId);
 
     await quizRef.update({ isAttempted: true, marks: score });
+    setIsLoading(false);
     navigation.navigate("QuizList");
   };
 
@@ -367,6 +371,7 @@ const Quiz = () => {
 
                 <TouchableOpacity
                   onPress={exitButtonHandler}
+                  disabled={isLoading}
                   style={{
                     backgroundColor: COLORS.accent,
                     padding: 20,
@@ -375,15 +380,19 @@ const Quiz = () => {
                     margin: "1%",
                   }}
                 >
-                  <Text
-                    style={{
-                      textAlign: "center",
-                      color: COLORS.white,
-                      fontSize: 20,
-                    }}
-                  >
-                    Exit
-                  </Text>
+                  {isLoading ? (
+                    <ActivityIndicator size="large" color="#fff" />
+                  ) : (
+                    <Text
+                      style={{
+                        textAlign: "center",
+                        color: COLORS.white,
+                        fontSize: 20,
+                      }}
+                    >
+                      Exit
+                    </Text>
+                  )}
                 </TouchableOpacity>
                 {/* Exist Quiz button ENDS */}
               </View>
