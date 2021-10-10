@@ -16,7 +16,7 @@ import { Icon } from "react-native-elements/dist/icons/Icon";
             padding:10,
             marginTop:10,
             borderRadius: 12,
-            backgroundColor:'#70DBDB',
+            backgroundColor:storyItem.col,
             ...containerStyle
         }}
             onPress={onPress}
@@ -35,7 +35,7 @@ import { Icon } from "react-native-elements/dist/icons/Icon";
             <View
             style={{
                 width: '55%',
-                paddingHorizontal:30,
+                paddingHorizontal:10,
                 paddingVertical:30
             }}
             >
