@@ -86,8 +86,8 @@ const TaskScreens = ({ navigation }) => (
     />
     <TaskStack.Screen name="Origami" component={Origami} />
     <TaskStack.Screen name="CollageArt" component={CollageArt} />
-    <TaskStack.Screen name="ShowOrigami" component={ShowOrigami} />
-    <TaskStack.Screen name="ShowCollage" component={ShowCollage} />
+    <TaskStack.Screen name="Show Origami" component={ShowOrigami} />
+    <TaskStack.Screen name="Show Collage" component={ShowCollage} />
   </TaskStack.Navigator>
 );
 

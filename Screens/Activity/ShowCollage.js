@@ -10,14 +10,14 @@ const ShowCollage = ({ route, navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView>
-                <ImageBackground source={bimage} resizeMode="cover" style={styles.bimage}>
-                    <Text style={styles.heading}>{title}</Text>
+            <ImageBackground source={bimage} resizeMode="cover" style={styles.bimage}>
+                <Text style={styles.heading}>{title}</Text>
+                <ScrollView style={{ flexGrow: 1 }}>
                     <Card containerStyle={styles.CollageArt}>
                         <Card.Title>Needed Matirials</Card.Title>
                         <Card.Divider />
                         <Text>Scissor</Text>
-                        <Text>Any Color Half Sheet</Text>
+                        <Text>Any Color Half Sheets</Text>
                         <Text>Glue</Text>
                         <Text>Color Pencil</Text>
                         <Text>Eraser</Text>
@@ -49,8 +49,8 @@ const ShowCollage = ({ route, navigation }) => {
                             </View>
                         </View>
                     </Card>
-                </ImageBackground>
-            </ScrollView>
+                </ScrollView>
+            </ImageBackground>
         </SafeAreaView>
     );
 }

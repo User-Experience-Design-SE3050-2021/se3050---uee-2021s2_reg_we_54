@@ -9,14 +9,14 @@ const ShowOrigami = ({ route, navigation }) => {
     const bimage = { uri: 'https://png.pngtree.com/thumb_back/fh260/back_our/20190617/ourmid/pngtree-cartoon-kid-rainbow-light-green-background-material-image_129842.jpg' }
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView>
-                <ImageBackground source={bimage} resizeMode="cover" style={styles.bimage}>
-                    <Text style={styles.heading}>{title}</Text>
+            <ImageBackground source={bimage} resizeMode="cover" style={styles.bimage}>
+                <Text style={styles.heading}>{title}</Text>
+                <ScrollView style={{ flexGrow: 1 }}>
                     <Card containerStyle={styles.Origami}>
                         <Card.Title>Needed Matirials</Card.Title>
                         <Card.Divider />
                         <Text>Scissor</Text>
-                        <Text>Any Color Half Sheet</Text>
+                        <Text>Any Color Half Sheets</Text>
                         <Text>Glue</Text>
                         <Text>Color Pencil</Text>
                         <Text>Eraser</Text>
@@ -48,8 +48,8 @@ const ShowOrigami = ({ route, navigation }) => {
                             </View>
                         </View>
                     </Card>
-                </ImageBackground>
-            </ScrollView>
+                </ScrollView>
+            </ImageBackground>
         </SafeAreaView>
     );
 }
