@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity, Image, ImageBackground, TextInput } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import { useNavigation } from "@react-navigation/core";
 
@@ -46,7 +46,7 @@ const DATA = [
     },
 ];
 
-const image = { uri: "https://thumbs.dreamstime.com/b/cute-birds-trees-rainbow-seamless-pattern-kids-collage-style-childish-background-children-red-green-white-use-141896111.jpg" }
+const image = { uri: "https://i.pinimg.com/736x/cd/53/4b/cd534b616e9ff144118a442f06b0facd.jpg" }
 
 const Item = ({ title, imageUrl, text }) => (
 
@@ -104,7 +104,7 @@ const CollageArt = () => {
                     numColumns={1}
                     data={filteredDataSource}
                     renderItem={({ item }) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("ShowCollage", item)}>
+                        <TouchableOpacity onPress={() => navigation.navigate("Show Collage", item)}>
                             <Item title={item.title} imageUrl={item.imageUrl} text={item.text} desctiption={item.desctiption} videoUrl={item.videoUrl} />
                         </TouchableOpacity>
                     )}
