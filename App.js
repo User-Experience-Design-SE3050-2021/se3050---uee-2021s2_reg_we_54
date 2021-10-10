@@ -17,6 +17,13 @@ import Origami from "./Screens/Activity/Origami";
 import CollageArt from "./Screens/Activity/CollageArt";
 import ShowOrigami from "./Screens/Activity/ShowOrigami";
 import ShowCollage from "./Screens/Activity/ShowCollage";
+import Language from "./Screens/Language"
+import EnglishLanguage from "./Screens/EnglishLanguage";
+import SinhalaLanguage from "./Screens/SinhalaLanguage";
+import TamilLanguage from "./Screens/TamilLanguage";
+import WordDetails from "./Screens/WordDetails";
+import FavoriteWord from "./Screens/FavoriteWord";
+import FavoriteWordInfo from "./Screens/FavoriteWordInfo"
 
 const LanguageStack = createStackNavigator();
 const StoryStack = createStackNavigator();
@@ -61,7 +68,13 @@ const StoryScreens = () => (
 // FOR LANGUAGES
 const LanguageScreens = () => (
   <LanguageStack.Navigator>
-    <LanguageStack.Screen name="" />
+    <LanguageStack.Screen name="Language" component={Language} />
+    <LanguageStack.Screen name="English Learning" component={EnglishLanguage} />
+    <LanguageStack.Screen name="Sinhala Learning" component={SinhalaLanguage} />
+    <LanguageStack.Screen name="Tamil Learning" component={TamilLanguage} />
+    <LanguageStack.Screen name="Word Details" component={WordDetails} />
+    <LanguageStack.Screen name="Favorite Word" component={FavoriteWord} />
+    <LanguageStack.Screen name="Favorite WordInfo" component={FavoriteWordInfo} />
   </LanguageStack.Navigator>
 );
 
@@ -91,6 +104,7 @@ const TaskScreens = ({ navigation }) => (
   </TaskStack.Navigator>
 );
 
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -119,9 +133,9 @@ export default function App() {
             component={TaskScreens}
             options={{ headerShown: false }}
           />
-        </Drawer.Navigator>
-      </SafeAreaProvider>
-    </NavigationContainer>
+        </Drawer.Navigator >
+      </SafeAreaProvider >
+    </NavigationContainer >
   );
 }
 
