@@ -61,10 +61,24 @@ const QuizStackScreens = ({ navigation }) => (
 );
 
 // FOR STORIES
-const StoryScreens = () => (
+const StoryScreens = ({ navigation }) => (
   <StoryStack.Navigator>
-    <StoryStack.Screen name="QuizList" component={QuizList} />
-    <StoryStack.Screen name="StoryHome" component={StoryHome} options={{title:"Story List"}}/>
+    <StoryStack.Screen
+      name="StoryHome"
+      component={StoryHome}
+      options={{
+        title: "Story List",
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={25}
+            backgroundColor="#FFF"
+            color="black"
+            onPress={() => navigation.toggleDrawer()}
+          />
+        ),
+      }}
+    />
     <StoryStack.Screen name="StoryList" component={StoryList} />
   </StoryStack.Navigator>
 );
@@ -125,7 +139,6 @@ const TaskScreens = ({ navigation }) => (
     <TaskStack.Screen name="Show Collage" component={ShowCollage} />
   </TaskStack.Navigator>
 );
-
 
 export default function App() {
   return (
