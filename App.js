@@ -66,9 +66,24 @@ const StoryScreens = () => (
 );
 
 // FOR LANGUAGES
-const LanguageScreens = () => (
+const LanguageScreens = ({ navigation }) => (
   <LanguageStack.Navigator>
-    <LanguageStack.Screen name="Language" component={Language} />
+    <LanguageStack.Screen
+      name="Language"
+      component={Language}
+      options={{
+        title: "Language Learning",
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={25}
+            backgroundColor="#FFF"
+            color="black"
+            onPress={() => navigation.toggleDrawer()}
+          />
+        ),
+      }}
+    />
     <LanguageStack.Screen name="English Learning" component={EnglishLanguage} />
     <LanguageStack.Screen name="Sinhala Learning" component={SinhalaLanguage} />
     <LanguageStack.Screen name="Tamil Learning" component={TamilLanguage} />
